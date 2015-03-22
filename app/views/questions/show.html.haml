@@ -1,0 +1,57 @@
+= render 'header'
+
+/ ROW
+.row
+  .col-md-1
+  .col-md-8
+    .content_wrap
+      .content
+        .question
+          #question_title
+            = @question.title
+          #question_info
+            = @question.created_at
+          #question_content
+            = @question.content
+            = link_to "編集", edit_question_path(@question), :class => "a edit btn btn-primary float_right"
+            / ここはいいね！booleanを置くところ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            %a.btn.btn-primary.float_right{:href => "#", :type => "button"}
+              %i.fa.fa-thumbs-o-up
+              %span.badge 4
+            / ここまではいいね！を置くところ
+
+
+        - @question.answers.each do |answer|
+          .answer
+            #answer_info
+              =answer.created_at
+            #answer_content
+              =answer.content
+              = link_to "編集", edit_question_answer_path(@question, answer), :class => "a edit btn btn-primary float_right"
+              / %a.edit.btn.btn-primary.float_right{:href => edit_question_answer_path(@question)}
+              /   編集
+              %a.btn.btn-primary.float_right{:href => "#", :type => "button"}
+                %i.fa.fa-thumbs-o-up
+                %span.badge 3
+
+        %h2 こちらに回答をお書きください。
+
+        = form_for([@question, @question.answers.build]) do |f|
+          %p.answerbox
+            = f.text_area :content
+          %p
+            .box_button
+              = f.submit '回答する', :class => "a btn btn-default"
+
+            .space10px
+            .space10px
+
+      / ここに関連するキーワードを入れる?
+
+      = render 'bottombox'
+  / CONTENT end
+
+  .sidebar.col-md-3
+    = render 'sidebar'
+
+= render 'footer'

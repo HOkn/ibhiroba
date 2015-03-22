@@ -1,0 +1,12 @@
+%header
+  %ul
+    %li= link_to image_tag('logo2.png', id:"logo"), questions_path
+    %li= image_tag "sublogo.png", id: "sublogo"
+    %li
+      %form.form-inline.input_group
+        .form-group
+          %input.form-control{:placeholder => "Q&Aを探す", :type => "text"}
+        %button.btn.btn-default{:href => "index_searched", :type => "submit"}検索
+    %li= link_to '質問する', new_question_path, class: "a btn btn-default newquestion"
+  .clear
+.line

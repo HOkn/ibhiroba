@@ -1,0 +1,242 @@
+
+.questions
+  .middle
+    vertical-align: middle
+
+  .col-md-9
+    position: relative
+
+  .content_wrap
+    padding: 0 30px 0 20px
+    margin: 0 0 0 0
+
+  .content
+    width: 85%
+    vertical-align: center
+
+  .content_wrap
+    .answer, .question
+      border-color: #bbc7c8
+      border-radius: 2px
+      margin: 0 auto
+
+  .content
+    padding-left: 30px
+
+
+  // buttonを中央に配置
+
+  .content .box_button
+    width: 100%
+    height: 50px
+    text-align: center
+
+  &.edit
+    h1
+      margin: 40px 0 30px 0
+      font-size: 20px
+
+  &.show
+  h2
+    color: #8c550b
+    font-size: 20px
+    margin: 0 0 10px 20px
+
+  &.show, &.edit
+  // fonts and places
+  .content_wrap
+    margin: 50px 10px 0px 0px
+    background-color: rgb(231, 211, 161)
+    border-radius: 5px
+  .content
+    padding-top: 10px
+    padding-bottom: 20px
+    margin-right: 0px
+
+    #question_title
+      color: rgb(140, 85, 11)
+      font-size: 25px
+      margin-top: 10px
+      padding-left: 20px
+    #question_info
+      font-size: 13px
+      margin-top: 15px
+      margin-bottom: 15px
+      padding-left: 20px
+    #question_content
+      font-size: 17px
+      padding-bottom: 20px
+      margin-right: 20px
+      padding-left: 20px
+    #answer_info
+      font-size: 13px
+      margin-bottom: 15px
+      margin-top: 20px
+      padding-left: 20px
+    #answer_content
+      border-radius: 3px
+      border-style: none
+      padding: 0 0 0 0
+
+  // 質問についての選択スペース
+  .category1
+    background-color: rgb(206, 255, 107)
+    padding-left: 10%
+    color: rgb(23, 64, 139)
+    height: 120px
+
+  .category2
+    background-color: rgb(206, 255, 107)
+    padding-left: 10%
+    color: rgb(23, 64, 139)
+    height: 80px
+
+
+  // ほか
+
+  .content
+    .question, #answer_info, #answer_content
+      width: 100%
+      margin-left: 0px
+      margin-bottom: 90px
+      padding-top: 5px
+      background-color: rgb(237, 231, 230)
+      opacity: 1
+    .answer_box
+      margin-top: 100px
+    #answer_info
+      margin-top: 50px
+      margin-bottom: 0px
+      padding: 15px 25px 20px 25px
+    #answer_content
+      margin-top: 0px
+      padding: 5px 25px 30px 25px
+    .answerbox
+      #answer_content
+        margin-bottom: 0px
+  // ----------------------------------------------
+
+  // 文字の位置とサイズ
+
+  // 文章のmax-widthを定義する
+
+  .content_wrap .answer_info, .answer_content, .content_wrap .question_info, .question_content
+    max-width: 690px
+
+  // 回答するボタン
+
+  .content_wrap
+    .btn-default
+      font-size: 20px
+      color: white
+      background-color: rgb(11, 169, 25)
+      border-color: rgb(11, 169, 25)
+      margin: 10px
+      width: 50%
+      height: 50px
+    .answerlast .btn-default
+      font-size: 20px
+      color: white
+      background-color: rgb(11, 169, 25)
+      border-color: rgb(11, 169, 25)
+      margin: 10px 10px 10px 100px
+      width: 50%
+      height: 50px
+    .btn-default:hover
+      color: white
+      opacity: 0.7
+
+  // colors
+  #questionbackg
+    width: 100%
+
+  // file upload添付ファイル
+  .file
+    display: inline-block
+    overflow: hidden
+    position: relative
+    background-color: transparent
+    padding: .5em
+    border: 1px solid rgb(204, 204, 204)
+    border-radius: 7px
+    background-color: #eee
+    input[type="file"]
+      position: absolute
+      right: 0
+      top: 0
+      font-size: 20px
+      cursor: pointer
+
+  &.new
+    #question_title
+      font-size: 17px
+
+  &.index
+    color: #512201
+    .indextop1
+      width: 50%
+      min-width: 90px
+    .indextop2
+      width: 20%
+    .indextop3
+      width: 50px
+    .indextop4
+      width: 50px
+
+    .indexcontentbox:hover
+      background-color: #EDEAB3
+    .indexcontent1
+      width: 50%
+      min-width: 90px
+    .indexcontent2
+      width: 20%
+    .indexcontent3
+      width: 50px
+    .indexcontent4
+      width: 50px
+
+
+.answers
+
+  &.edit
+    .box_button
+      width: 100%
+      height: 50px
+      text-align: center
+    .content_wrap
+      .btn-default
+        font-size: 20px
+        color: white
+        background-color: rgb(11, 169, 25)
+        border-color: rgb(11, 169, 25)
+        margin: 10px
+        width: 50%
+        height: 50px
+      .answerlast .btn-default
+        font-size: 20px
+        color: white
+        background-color: rgb(11, 169, 25)
+        border-color: rgb(11, 169, 25)
+        margin: 10px 10px 10px 100px
+        width: 50%
+        height: 50px
+      .btn-default:hover
+        color: white
+        opacity: 0.7
+      #answer_content
+        border-radius: 3px
+        border-style: none
+        padding: 0 0 0 0
+      .answerbox
+        textarea
+          width: 80%
+          height: 350px
+          margin-left: 10%
+          margin-top: 20px
+
+
+
+
+
+
+
