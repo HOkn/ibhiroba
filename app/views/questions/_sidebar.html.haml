@@ -4,7 +4,10 @@
   %div
     .name.float
       %i.fa.fa-user
-      @user.screen_name
+      - if current_user.present?
+        = current_user.screen_name
+      - else
+        Unknown User
     .clear
     .row
       - if logged_in?
@@ -24,7 +27,7 @@
         .col-md-4
           = link_to "Q&A記録", new_registrations_path, :class => "a btn btn-default"
         .col-md-4
-          = link_to "設定", new_registrations_path, :class => "a btn btn-default"
+          = link_to "ログイン", new_registrations_path, :class => "a btn btn-default"
 / PROFILE end
 / INDEX+RANKING+NEW+LINKS
 .ranking

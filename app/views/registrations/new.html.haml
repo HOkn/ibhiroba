@@ -8,7 +8,8 @@
           .clear
 
           %h3 新規登録
-          - @user.errors.each do |attr, message|
+          - if alert
+            @user.errors.each do |attr, message|
             .alert.alert-danger= message
           %p *の箇所はすべて登録してください。
           .row

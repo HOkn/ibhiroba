@@ -13,6 +13,7 @@
             = @question.created_at.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})")
           #question_content
             = @question.content
+            = link_to "お気に入りに登録", question_favorites_path, method: :post
             = link_to "編集", edit_question_path(@question), :class => "a edit btn btn-primary float_right"
             / ここはいいね！booleanを置くところ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             %a.btn.btn-primary.float_right{:href => "#", :type => "button"}
