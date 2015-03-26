@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
 
-  resources :questions do
-    resources :answers
+  resource :registrations, only: [:new, :create]
+  resource :sessions, only: [:new, :create, :destroy]
+  resource :settings, only: [:edit, :update]
+  get 'user' => 'users#show' do
+    get :favorites, on: :member
   end
+
+  get 'users' => 'users#index'
+
+  resources :questions do
+    resource :favorites, only: [:create, :destroy]
+    resources :answers
+      # resource :favorites, only: [:create, :destroy]
+  end
+
   root to: 'questions#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

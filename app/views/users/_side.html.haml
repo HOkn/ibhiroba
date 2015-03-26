@@ -4,27 +4,18 @@
   %div
     .name.float
       %i.fa.fa-user
-      @user.screen_name
+      - @user.screen_name
     .clear
     .row
-      - if logged_in?
-        .col-md-4
-          %a.btn.btn-primary{:href => "", :type => "button"}
-            %i.fa.fa-thumbs-o-up
-            %span.badge 4
-        .col-md-4
-          = link_to "Q&A記録", user_path, :class => "a btn btn-default"
-        .col-md-4
-          = link_to "設定", edit_settings_path, :class => "a btn btn-default"
-      - else
-        .col-md-4
-          %a.btn.btn-primary{:href => "", :type => "button"}
-            %i.fa.fa-thumbs-o-up
-            %span.badge 4
-        .col-md-4
-          = link_to "Q&A記録", new_registrations_path, :class => "a btn btn-default"
-        .col-md-4
-          = link_to "設定", new_registrations_path, :class => "a btn btn-default"
+      .col-md-4
+        %a.btn.btn-primary{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Likes%23index_user.html", :type => "button"}
+          %i.fa.fa-thumbs-o-up
+          %span.badge 4
+      .col-md-4
+        %a.btn.btn-default{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index.html", :role => "button"}
+          Q&A記録
+      .col-md-4
+        = link_to "設定", edit_settings_path, :class => "a btn btn-default"
 / PROFILE end
 / INDEX+RANKING+NEW+LINKS
 .ranking

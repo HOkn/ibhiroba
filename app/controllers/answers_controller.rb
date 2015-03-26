@@ -21,16 +21,9 @@ class AnswersController < ApplicationController
     if @answer.update_attributes(answer_params)
       redirect_to question_path(@question)
     else
-      raise
       render 'edit'
     end
   end
-
-
-  def edit
-    @question = Question.find(params[:id])
-  end
-
 
   private
     def answer_params

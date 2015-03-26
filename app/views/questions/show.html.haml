@@ -10,7 +10,7 @@
           #question_title
             = @question.title
           #question_info
-            = @question.created_at
+            = @question.created_at.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})")
           #question_content
             = @question.content
             = link_to "編集", edit_question_path(@question), :class => "a edit btn btn-primary float_right"
@@ -24,12 +24,11 @@
         - @question.answers.each do |answer|
           .answer
             #answer_info
-              =answer.created_at
+              =answer.created_at.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})")
+              ="ユーザ名と属性と住んでいる場所"
             #answer_content
               =answer.content
               = link_to "編集", edit_question_answer_path(@question, answer), :class => "a edit btn btn-primary float_right"
-              / %a.edit.btn.btn-primary.float_right{:href => edit_question_answer_path(@question)}
-              /   編集
               %a.btn.btn-primary.float_right{:href => "#", :type => "button"}
                 %i.fa.fa-thumbs-o-up
                 %span.badge 3
