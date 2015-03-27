@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_filter :require_login
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
+  def favorites
+    @user = User.find(params[:id])
+  end
 
   # GET /users
   # GET /users.json

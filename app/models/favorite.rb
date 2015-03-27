@@ -5,6 +5,6 @@ class Favorite < ActiveRecord::Base
 
   validates :user, presence: true
   validates :user_id, uniqueness: { scope: :question_id }
-  validates :question
-  validates :answer
+  # validates :question
+  # validates :answer
 end

@@ -31,20 +31,11 @@
     height: 50px
     text-align: center
 
-
-  &.edit
-    h1
-      margin: 40px 0 30px 0
-      font-size: 20px
-
-  &.show
   h2
     color: #8c550b
     font-size: 20px
     margin: 0 0 10px 20px
 
-  &.show, &.edit
-  // fonts and places
   .content_wrap
     margin: 50px 10px 0px 0px
     background-color: rgb(231, 211, 161)
@@ -115,12 +106,10 @@
     .answerbox
       #answer_content
         margin-bottom: 0px
-  // ----------------------------------------------
 
   // 文字の位置とサイズ
 
   // 文章のmax-widthを定義する
-
   .content_wrap .answer_info, .answer_content, .content_wrap .question_info, .question_content
     max-width: 690px
 
@@ -167,6 +156,26 @@
       top: 0
       font-size: 20px
       cursor: pointer
+
+  &.show
+    .button_to
+      input
+        color:white
+        font-size: 20px
+        background-color: rgb(11, 169, 25)
+        border-color: rgb(11, 169, 25)
+        margin: 10px
+        width: 50%
+        height: 50px
+        border-radius: 3px
+      input:hover
+        opacity: 0.7
+
+
+  &.edit
+    h1
+      margin: 40px 0 30px 0
+      font-size: 20px
 
   &.new
     #question_title

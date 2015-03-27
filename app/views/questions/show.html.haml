@@ -13,7 +13,7 @@
             = @question.created_at.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})")
           #question_content
             = @question.content
-            = link_to "お気に入りに登録", question_favorites_path, method: :post
+            = link_to "お気に入りに登録", question_favorites_path(@question), method: :post
             = link_to "編集", edit_question_path(@question), :class => "a edit btn btn-primary float_right"
             / ここはいいね！booleanを置くところ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             %a.btn.btn-primary.float_right{:href => "#", :type => "button"}
@@ -21,6 +21,9 @@
               %span.badge 4
             / ここまではいいね！を置くところ
 
+        / =button_to "new", question_path, :anchor => 'answer', :method => :get
+        / =link_to "回答する", :class => "a btn btn-default"
+        / =link_to "回答する", :action => 'show', :anchor => 'answer', :class => "a btn btn-default"
 
         - @question.answers.each do |answer|
           .answer
@@ -34,7 +37,7 @@
                 %i.fa.fa-thumbs-o-up
                 %span.badge 3
 
-        %h2 こちらに回答をお書きください。
+        %h2#answer こちらに回答をお書きください。
 
         = form_for([@question, @question.answers.build]) do |f|
           %p.answerbox
