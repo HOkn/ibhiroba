@@ -45,9 +45,21 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem 'haml-rails'
-  gem 'bootstrap-sass'
-  gem 'font-awesome-rails'
-  gem 'sorcery'
+  gem 'pry-doc'
+  gem 'pry-stack_explorer'
+
+  if RUBY_VERSION >= '2.0.0'
+    gem 'pry-byebug'
+  else
+    gem 'pry-debugger'
+    gem 'pry-remote'
+  end
+
+  gem 'hirb'
+
+gem 'haml-rails'
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
+gem 'sorcery'
 end
 

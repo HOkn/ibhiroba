@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327030117) do
+ActiveRecord::Schema.define(version: 20150327070044) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150327030117) do
     t.integer  "child_age2"
     t.text     "wannaknow"
     t.text     "know"
+    t.integer  "parent"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
