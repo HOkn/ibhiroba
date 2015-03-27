@@ -4,7 +4,7 @@
     .content_wrap
       .content
         .accountsetting
-          =link_to "ログアウトする", sessions_path, :class => "a btn btn-default float_right", method: :delete
+          =link_to "ログアウト", sessions_path, :class => "a btn btn-default float_right", method: :delete
           .clear
 
           %h3 設定変更
@@ -15,8 +15,6 @@
               %ul
                 %li メールアドレス：
                 %li 表示名：
-                %li パスワード：
-                %li パスワード：
                 %li 立場：
                 %li 在住国：
                 %li 都道府県/地域：
@@ -28,7 +26,9 @@
                 %li 自己紹介：
                 %li Q&A記録の公開*：
                 %li メールマガジン*：
-
+                .space10px
+                %li パスワード：
+                %li パスワード(確認用)：
             .col-md-8.accountinfo
               %ul
                 - @user.errors.each do |attr, message|
@@ -36,8 +36,6 @@
                 = form_for @user, url: settings_path, method: :put do |f|
                   %li= f.text_field :email, :placeholder => "example@example.com"
                   %li= f.text_field :screen_name, :placeholder => "4~24文字"
-                  %li= f.password_field :password
-                  %li= f.password_field :password_confirmation
                   %li
                     %label.radio-inline
                       %input#inlineRadio1{:name => "inlineRadioOptions", :type => "radio", :value => "option1"}
@@ -51,8 +49,8 @@
                     %label.radio-inline
                       %input#inlineRadio3{:name => "inlineRadioOptions", :type => "radio", :value => "option3"}
                         ほか
-                  %li= f.text_field :residencenow, :placeholder => "(例)日本"
-                  %li= f.text_field :residence_country, :placeholder => "(例)東京都"
+                  %li= f.text_field :residence_country, :placeholder => "(例)日本"
+                  %li= f.text_field :residencenow, :placeholder => "(例)東京都"
                   %li= f.text_field :school, :placeholder => "学校名"
                   %li= f.text_field :origin, :placeholder => "(例)アメリカ"
                   %li
@@ -69,7 +67,9 @@
                     %label.checkbox-inline
                       %input#inlineCheckbox1{:checked => "checked", :type => "checkbox", :value => "option1"}
                         受け取る
-
+                  .space10px
+                  %li= f.password_field :password
+                  %li= f.password_field :password_confirmation
                   %li= f.submit '変更を保存', :class => "btn btn-default submitbutton"
           .clear
 
