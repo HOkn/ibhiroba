@@ -7,8 +7,8 @@ class Question < ActiveRecord::Base
   validates :title, presence: true, length: { minimum: 3 }
   validates :content, presence: true, length: { in: 3..25 }
 
-  def favorited_by? user
-    favorites.where(user_id: user.id).exists?
+  def favorited_by?(user, question)
+    Favorite.where(user_id: user.id).where(question_id: question.id).exists?
   end
 
 end

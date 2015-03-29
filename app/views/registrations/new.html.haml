@@ -7,19 +7,9 @@
           =link_to "ログインする", new_sessions_path, :class => "a btn btn-default float_right"
           .clear
 
-          / - if action_name == "create"
-          /   =@user.errors.each do |attr, message|
-          /   .alert.alert-danger= message
-
-          / .space10px
-          / .space10px
-          / .space10px
-          / .space10px
-          / .space10px
-          / .space10px
-
-          / - @user.errors.each do |attr, message|
-          /   .alert.alert-danger= message
+          - if action_name == "create"
+            - @user.errors.each do |attr, message|
+              .alert.alert-danger= message
 
           %h3 新規登録
           %p *の箇所はすべて登録してください。
@@ -55,8 +45,10 @@
                   %li= f.text_field :screen_name, :placeholder => "4~24文字"
                   %li= f.password_field :password
                   %li= f.password_field :password_confirmation
+                  %li=f.radio_button :parent, 1
 
-                  %li=f.check_box :parent
+                  %li=f.radio_button :parent, 0
+                  / %li=f.check_box :parent
                   / %li=f.check_box :parent, {}, true, false
                   / %li=f.check_box_tag "status"
 
