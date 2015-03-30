@@ -13,21 +13,19 @@
             = @question.created_at.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})")
           #question_content
             = @question.content
-
-            -if @question.favorited_by?(current_user, @question)
-              = link_to "お気に入りを解除", question_favorites_path(@question), method: :delete
+            -if logged_in?
+              -if @question.favorited_by?(current_user, @question)
+                = link_to "質問の保存を解除", question_favorites_path(@question), :class => "a btn btn-primary float_right", method: :delete
+              -else
+                = link_to "質問を保存", question_favorites_path(@question), :class => "a btn btn-primary float_right", method: :post
+              - if current_user.id == @question.user_id
+                = link_to "編集", edit_user_question_path(current_user, @question), :class => "a edit btn btn-primary float_right"
             -else
-              = link_to "お気に入りに登録", question_favorites_path(@question), method: :post
-            = link_to "編集", edit_question_path(@question), :class => "a edit btn btn-primary float_right"
-            / ここはいいね！booleanを置くところ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            %a.btn.btn-primary.float_right{:href => "#", :type => "button"}
-              %i.fa.fa-thumbs-o-up
-              %span.badge 4
-            / ここまではいいね！を置くところ
-
+              = link_to "質問を保存", new_registrations_path, :class => "a btn btn-primary float_right", method: :get
         / =button_to "new", question_path, :anchor => 'answer', :method => :get
         / =link_to "回答する", :class => "a btn btn-default"
         / =link_to "回答する", :action => 'show', :anchor => 'answer', :class => "a btn btn-default"
+
 
         - @question.answers.each do |answer|
           .answer
@@ -36,22 +34,30 @@
               ="ユーザ名と属性と住んでいる場所"
             #answer_content
               =answer.content
-              = link_to "編集", edit_question_answer_path(@question, answer), :class => "a edit btn btn-primary float_right"
-              %a.btn.btn-primary.float_right{:href => "#", :type => "button"}
+              - if logged_in?
+                - if current_user.id == answer.user_id
+                  = link_to "編集", edit_question_answer_path(@question, answer), :class => "a edit btn btn-primary float_right"
+                %a.btn.btn-primary.float_right{:href => "#", :type => "button"}
                 %i.fa.fa-thumbs-o-up
                 %span.badge 3
+              - else
+                = link_to "いいね！", new_registrations_path, :class => "a btn btn-primary float_right", method: :get
 
-        %h2#answer こちらに回答をお書きください。
 
-        = form_for([@question, @question.answers.build]) do |f|
-          %p.answerbox
-            = f.text_area :content
-          %p
-            .box_button
-              = f.submit '回答する', :class => "a btn btn-default"
 
-            .space10px
-            .space10px
+        - if logged_in?
+          %h2#answer こちらに回答をお書きください。
+          = form_for([@question, @question.answers.build]) do |f|
+            %p.answerbox
+              = f.text_area :content
+            %p
+              .box_button
+                = f.submit '回答する', :class => "a btn btn-default"
+        - else
+          = link_to '回答するには登録/ログイン', new_registrations_path, :class => "a btn btn-default", method: :get
+
+        .space10px
+        .space10px
 
       / ここに関連するキーワードを入れる?
 

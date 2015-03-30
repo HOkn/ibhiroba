@@ -3,16 +3,17 @@ Rails.application.routes.draw do
   resource :registrations, only: [:new, :create]
   resource :sessions, only: [:new, :create, :destroy]
   resource :settings, only: [:edit, :update]
-  get 'user' => 'users#show' do
-    get :favorites, on: :member
+
+  resources :users, only: [:show, :index] do
+    resources :questions, except: [:index]
   end
 
-  get 'users' => 'users#index'
+  get "/questions", to: "questions#index"
+  get "/questions/category", to: "questions#index_category"
 
-  resources :questions do
-    resource :favorites, only: [:create, :destroy]
-    resources :answers
-      # resource :favorites, only: [:create, :destroy]
+  resources :questions, only: [] do
+      resource :favorites, only: [:create, :destroy]
+      resources :answers
   end
 
   root to: 'questions#index'

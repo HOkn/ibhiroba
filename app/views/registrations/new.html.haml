@@ -45,12 +45,18 @@
                   %li= f.text_field :screen_name, :placeholder => "4~24文字"
                   %li= f.password_field :password
                   %li= f.password_field :password_confirmation
-                  %li=f.radio_button :parent, 1
 
-                  %li=f.radio_button :parent, 0
-                  / %li=f.check_box :parent
-                  / %li=f.check_box :parent, {}, true, false
-                  / %li=f.check_box_tag "status"
+                  %li=f.radio_button :status, value: "保護者"
+                  保護者
+
+                  %li=f.radio_button :status, value: "IB生の保護者"
+                  IB生の保護者
+
+                  %li=f.radio_button :status, value: "IB教員"
+                  IB教員
+
+                  %li=f.radio_button :status, value: "IB生"
+                  IB生
 
                   %li
                     %label.radio-inline

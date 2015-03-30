@@ -15,24 +15,28 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @question = Question.new(question_params)
+    @question.user_id = @user.id
     if @question.save
-      redirect_to @question
+      redirect_to user_question_path(@user, @question)
     else
       render 'new'
     end
   end
 
   def edit
+    @user = current_user
     @question = Question.find(params[:id])
   end
 
 
   def update
+    @user = current_user
     @question = Question.find(params[:id])
     if @question.update_attributes(question_params)
       @question.save
-      redirect_to question_path(@question)
+      redirect_to user_question_path(@user, @question)
     else
       render 'edit'
     end

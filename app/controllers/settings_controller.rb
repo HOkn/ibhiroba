@@ -7,6 +7,7 @@ class SettingsController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params_user)
+      @user.save
       redirect_to user_url(@user), notice: "アカウント設定を更新しました"
     else
       render :edit
@@ -16,6 +17,6 @@ class SettingsController < ApplicationController
 
   private
   def params_user
-    params.require(:user).permit(:screen_name, :email, :password, :password_confirmation, :residencenow, :residence_country, :origin, :status, :mailmagazine, :school, :bio, :comment)
+    params.require(:user).permit(:screen_name, :email, :password, :password_confirmation, :status, :child_age1, :child_age2, :residence_country, :residencenow, :school, :origin, :wannaknow, :know, :bio, :mailmagazine, :comment, :parent)
   end
 end

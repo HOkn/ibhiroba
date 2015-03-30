@@ -3,7 +3,7 @@ class RegistrationsController < ApplicationController
     @user = User.new
     if @user.save
       raise
-      login(@user.email, @user.password)
+      log_in(@user.email, @user.password)
       redirect_to root_url
     end
   end
