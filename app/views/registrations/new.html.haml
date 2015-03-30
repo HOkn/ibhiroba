@@ -20,7 +20,7 @@
                 %li 表示名*：
                 %li パスワード*：
                 %li パスワード*：
-                %li 立場*：
+                .status 立場*：
                 %li お子様の年齢：
                 %li お子様の年齢：
                 %li 在住国*：
@@ -46,37 +46,27 @@
                   %li= f.password_field :password
                   %li= f.password_field :password_confirmation
 
-                  %li=f.radio_button :status, value: "保護者"
-                  保護者
-
-                  %li=f.radio_button :status, value: "IB生の保護者"
-                  IB生の保護者
-
-                  %li=f.radio_button :status, value: "IB教員"
-                  IB教員
-
-                  %li=f.radio_button :status, value: "IB生"
-                  IB生
-
-                  %li
-                    %label.radio-inline
-                      %input#inlineRadio1{:name => "inlineRadioOptions", :type => "radio", :value => "option1"}
-                        生徒
-                    %label.radio-inline
-                      %input#inlineRadio2{:name => "inlineRadioOptions", :type => "radio", :value => "option2"}
-                        IB生の親
-                    %label.radio-inline
-                      %input#inlineRadio2{:name => "inlineRadioOptions", :type => "radio", :value => "option2"}
-                        その他の親
-                    %label.radio-inline
-                      %input#inlineRadio3{:name => "inlineRadioOptions", :type => "radio", :value => "option3"}
-                        教育関係者
+                  %li.radio.float=f.radio_button :status, string: "parent"
+                  　　保護者
+                  .clear
+                  %li.radio.float=f.radio_button :status, string: "IBparent"
+                  　　IB生の保護者
+                  .clear
+                  %li.radio.float=f.radio_button :status, string: "teacher"
+                  　　教員
+                  .clear
+                  %li.radio.float=f.radio_button :status, string: "IBteacher"
+                  　　IB教員
+                  .clear
+                  %li.radio.float=f.radio_button :status, string: "IBstudent"
+                  　　IB生
+                  .clear
                   %li
                   = f.text_field :child_age1, :class => "child_age"
-                  歳(非公開)
+                  歳
                   %li
                   = f.text_field :child_age2, :class => "child_age"
-                  歳(非公開)
+                  歳
                   %li= f.text_field :residencenow, :placeholder => "(例)日本"
                   %li= f.text_field :residence_country, :placeholder => "(例)東京都"
                   %li= f.text_field :school, :placeholder => "学校名(非公開)"

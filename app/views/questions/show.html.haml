@@ -13,6 +13,7 @@
             = @question.created_at.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})")
           #question_content
             = @question.content
+            = link_to image_tag('FacebookIcon.png', id:'FacebookIcon'), 'http://www.facebook.com/sharer.php?u='+request.fullpath, :target => :blank, :class => "float_right FacebookIcon"
             -if logged_in?
               -if @question.favorited_by?(current_user, @question)
                 = link_to "質問の保存を解除", question_favorites_path(@question), :class => "a btn btn-primary float_right", method: :delete
