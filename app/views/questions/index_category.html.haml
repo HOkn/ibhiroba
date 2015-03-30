@@ -2,221 +2,239 @@
 
 / ROW
 .row
-  .col-md-1
-  .col-md-8
+  .col-md-0
+  .col-md-9
     .content_wrap
       .content
 
 
-
         / カテゴリ１
         %h3
-          %a#category1{:name => "category1"}>
+          %a#category1{:name => "category1"}
           進路相談
-        %table.table.table-hover
-          %thead
-            %tr
-              %th 質問
-              %th 詳細
-              %th 回答
-          %tbody
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td 最終試験に向けた計画づくりについて
-              %td IBDP最終試験に向けた計画づくりについて・・・
-              %td 7
+
+        %ul
+          %li.float.indextop1 質問
+          %li.float.indextop2 詳細
+          %li.float.indextop3 投稿時
+          %li.float.indextop4 回答数
+        .clear
+
+        %ul
+          - @questions.where(category1: true).each do |question|
+            %li.indexcontentbox
+              = link_to user_question_path(question.user_id, question) do
+                .float.indexcontent.indexcontent1= question.title[0,14]
+                .float.indexcontent.indexcontent2= question.content[0,6]
+                .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
+                .float.indexcontent.indexcontent4= question.answers.count
+              .clear
+
         / カテゴリ２
+        .space10px
+        .space10px
+        .space10px
+        .space10px
         %h3
           %a#category2{:name => "category2"}>
           学校・塾評判
-        %table.table.table-hover
-          %thead
-            %tr
-              %th 質問
-              %th 詳細
-              %th 回答
-          %tbody
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td 最終試験に向けた計画づくりについて
-              %td IBDP最終試験に向けた計画づくりについて・・・
-              %td 7
+
+
+        %ul
+          %li.float.indextop1 質問
+          %li.float.indextop2 詳細
+          %li.float.indextop3 投稿時
+          %li.float.indextop4 回答数
+        .clear
+
+        %ul
+          - @questions.where(category2: true).each do |question|
+            %li.indexcontentbox
+              = link_to user_question_path(question.user_id, question) do
+                .float.indexcontent.indexcontent1= question.title[0,14]
+                .float.indexcontent.indexcontent2= question.content[0,6]
+                .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
+                .float.indexcontent.indexcontent4= question.answers.count
+              .clear
+
+
         / カテゴリ３
+        .space10px
+        .space10px
+        .space10px
+        .space10px
         %h3
           %a#category3{:name => "category3"}>
           大学評判
-        %table.table.table-hover
-          %thead
-            %tr
-              %th 質問
-              %th 詳細
-              %th 回答
-          %tbody
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td 最終試験に向けた計画づくりについて
-              %td IBDP最終試験に向けた計画づくりについて・・・
-              %td 7
-        / 4
+
+        %ul
+          %li.float.indextop1 質問
+          %li.float.indextop2 詳細
+          %li.float.indextop3 投稿時
+          %li.float.indextop4 回答数
+        .clear
+
+        %ul
+          - @questions.where(category3: true).each do |question|
+            %li.indexcontentbox
+              = link_to user_question_path(question.user_id, question) do
+                .float.indexcontent.indexcontent1= question.title[0,14]
+                .float.indexcontent.indexcontent2= question.content[0,6]
+                .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
+                .float.indexcontent.indexcontent4= question.answers.count
+              .clear
+
+        / カテゴリ４
+        .space10px
+        .space10px
+        .space10px
+        .space10px
         %h3
           %a#category4{:name => "category4"}>
           IB PYPの課題
-        %table.table.table-hover
-          %thead
-            %tr
-              %th 質問
-              %th 詳細
-              %th 回答
-          %tbody
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td 最終試験に向けた計画づくりについて
-              %td IBDP最終試験に向けた計画づくりについて・・・
-              %td 7
+        %ul
+          %li.float.indextop1 質問
+          %li.float.indextop2 詳細
+          %li.float.indextop3 投稿時
+          %li.float.indextop4 回答数
+        .clear
+
+        %ul
+          - @questions.where(category4: true).each do |question|
+            %li.indexcontentbox
+              = link_to user_question_path(question.user_id, question) do
+                .float.indexcontent.indexcontent1= question.title[0,14]
+                .float.indexcontent.indexcontent2= question.content[0,6]
+                .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
+                .float.indexcontent.indexcontent4= question.answers.count
+              .clear
+
         / 5
+        .space10px
+        .space10px
+        .space10px
+        .space10px
         %h3
           %a#category5{:name => "category5"}>
           IB MYPの課題
-        %table.table.table-hover
-          %thead
-            %tr
-              %th 質問
-              %th 詳細
-              %th 回答
-          %tbody
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td 最終試験に向けた計画づくりについて
-              %td IBDP最終試験に向けた計画づくりについて・・・
-              %td 7
+        %ul
+          %li.float.indextop1 質問
+          %li.float.indextop2 詳細
+          %li.float.indextop3 投稿時
+          %li.float.indextop4 回答数
+        .clear
+
+        %ul
+          - @questions.where(category5: true).each do |question|
+            %li.indexcontentbox
+              = link_to user_question_path(question.user_id, question) do
+                .float.indexcontent.indexcontent1= question.title[0,14]
+                .float.indexcontent.indexcontent2= question.content[0,6]
+                .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
+                .float.indexcontent.indexcontent4= question.answers.count
+              .clear
+
+
         / 6
+        .space10px
+        .space10px
+        .space10px
+        .space10px
         %h3
           %a#category6{:name => "category6"}>
           IB DPの課題
-        %table.table.table-hover
-          %thead
-            %tr
-              %th 質問
-              %th 詳細
-              %th 回答
-          %tbody
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td 最終試験に向けた計画づくりについて
-              %td IBDP最終試験に向けた計画づくりについて・・・
-              %td 7
+        %ul
+          %li.float.indextop1 質問
+          %li.float.indextop2 詳細
+          %li.float.indextop3 投稿時
+          %li.float.indextop4 回答数
+        .clear
+
+        %ul
+          - @questions.where(category6: true).each do |question|
+            %li.indexcontentbox
+              = link_to user_question_path(question.user_id, question) do
+                .float.indexcontent.indexcontent1= question.title[0,14]
+                .float.indexcontent.indexcontent2= question.content[0,6]
+                .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
+                .float.indexcontent.indexcontent4= question.answers.count
+              .clear
+
         / 7
+        .space10px
+        .space10px
+        .space10px
+        .space10px
         %h3
           %a#category7{:name => "category7"}>
           課外活動/CAS
-        %table.table.table-hover
-          %thead
-            %tr
-              %th 質問
-              %th 詳細
-              %th 回答
-          %tbody
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td 最終試験に向けた計画づくりについて
-              %td IBDP最終試験に向けた計画づくりについて・・・
-              %td 7
+        %ul
+          %li.float.indextop1 質問
+          %li.float.indextop2 詳細
+          %li.float.indextop3 投稿時
+          %li.float.indextop4 回答数
+        .clear
+
+        %ul
+          - @questions.where(category7: true).each do |question|
+            %li.indexcontentbox
+              = link_to user_question_path(question.user_id, question) do
+                .float.indexcontent.indexcontent1= question.title[0,14]
+                .float.indexcontent.indexcontent2= question.content[0,6]
+                .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
+                .float.indexcontent.indexcontent4= question.answers.count
+              .clear
+
+
         / 8
+        .space10px
+        .space10px
+        .space10px
+        .space10px
         %h3
           %a#category8{:name => "category8"}>
           TOK/EE
-        %table.table.table-hover
-          %thead
-            %tr
-              %th 質問
-              %th 詳細
-              %th 回答
-          %tbody
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td 最終試験に向けた計画づくりについて
-              %td IBDP最終試験に向けた計画づくりについて・・・
-              %td 7
+        %ul
+          %li.float.indextop1 質問
+          %li.float.indextop2 詳細
+          %li.float.indextop3 投稿時
+          %li.float.indextop4 回答数
+        .clear
+
+        %ul
+          - @questions.where(category8: true).each do |question|
+            %li.indexcontentbox
+              = link_to user_question_path(question.user_id, question) do
+                .float.indexcontent.indexcontent1= question.title[0,14]
+                .float.indexcontent.indexcontent2= question.content[0,6]
+                .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
+                .float.indexcontent.indexcontent4= question.answers.count
+              .clear
+
         / 9
+        .space10px
+        .space10px
+        .space10px
+        .space10px
         %h3
           %a#category9{:name => "category9"}>
           試験勉強
-        %table.table.table-hover
-          %thead
-            %tr
-              %th 質問
-              %th 詳細
-              %th 回答
-          %tbody
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td インター校に行くべきか
-              %td 中学生です。インター校か現地校で迷って・・・
-              %td 10
-            %tr
-              %td 最終試験に向けた計画づくりについて
-              %td IBDP最終試験に向けた計画づくりについて・・・
-              %td 7
+        %ul
+          %li.float.indextop1 質問
+          %li.float.indextop2 詳細
+          %li.float.indextop3 投稿時
+          %li.float.indextop4 回答数
+        .clear
 
+        %ul
+          - @questions.where(category9: true).each do |question|
+            %li.indexcontentbox
+              = link_to user_question_path(question.user_id, question) do
+                .float.indexcontent.indexcontent1= question.title[0,14]
+                .float.indexcontent.indexcontent2= question.content[0,6]
+                .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
+                .float.indexcontent.indexcontent4= question.answers.count
+              .clear
 
         .space10px
         .space10px

@@ -42,8 +42,19 @@ class QuestionsController < ApplicationController
     end
   end
 
-  private
 
+
+
+  def index_category
+    @questions = Question.all
+  end
+
+
+
+
+
+
+  private
   def question_params
     params.require(:question).permit(:title, :content, :category1, :category2, :category3, :category4, :category5, :category6, :category7, :category8, :category9)
   end

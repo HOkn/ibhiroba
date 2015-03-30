@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
   def destroy
     @user = current_user
     @question = Question.find(params[:question_id])
-    @favorite = Favorite.find(user_id: current_user.id).find_by!(question_id: params[:question_id])
+    @favorite = Favorite.where(user_id: current_user.id).find_by!(question_id: params[:question_id])
     @favorite.destroy
     redirect_to user_question_path(@user, @question), notice: "お気に入りを解除しました"
   end

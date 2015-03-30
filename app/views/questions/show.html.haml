@@ -26,7 +26,6 @@
         / =link_to "回答する", :class => "a btn btn-default"
         / =link_to "回答する", :action => 'show', :anchor => 'answer', :class => "a btn btn-default"
 
-
         - @question.answers.each do |answer|
           .answer
             #answer_info
@@ -37,13 +36,11 @@
               - if logged_in?
                 - if current_user.id == answer.user_id
                   = link_to "編集", edit_question_answer_path(@question, answer), :class => "a edit btn btn-primary float_right"
-                %a.btn.btn-primary.float_right{:href => "#", :type => "button"}
-                %i.fa.fa-thumbs-o-up
-                %span.badge 3
+                / %a.btn.btn-primary.float_right{:href => "#", :type => "button"}
+                / %i.fa.fa-thumbs-o-up
+                / %span.badge 3
               - else
                 = link_to "いいね！", new_registrations_path, :class => "a btn btn-primary float_right", method: :get
-
-
 
         - if logged_in?
           %h2#answer こちらに回答をお書きください。

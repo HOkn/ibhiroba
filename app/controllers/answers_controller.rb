@@ -4,7 +4,8 @@ class AnswersController < ApplicationController
     @user = current_user
     @question = Question.find(params[:question_id])
     @answer = @question.answers.create(answer_params)
-    @answer.user_id = @user.id
+    @answer.user_id = current_user.id
+    raise
     redirect_to user_question_path(@user, @question)
   end
 
@@ -31,6 +32,6 @@ class AnswersController < ApplicationController
 
   private
     def answer_params
-      params.require(:answer).permit(:content)
+      params.require(:answer).permit(:content, :user_id)
     end
 end
