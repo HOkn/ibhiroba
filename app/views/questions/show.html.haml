@@ -22,9 +22,9 @@
                 = link_to "編集", edit_user_question_path(current_user, @question), :class => "a edit btn btn-primary float_right"
             -else
               = link_to "質問を保存", new_registrations_path, :class => "a btn btn-primary float_right", method: :get
-        / =button_to "new", question_path, :anchor => 'answer', :method => :get
-        / =link_to "回答する", :class => "a btn btn-default"
-        / =link_to "回答する", :action => 'show', :anchor => 'answer', :class => "a btn btn-default"
+        .answerlink.a.btn.btn-default
+          =link_to "回答する", :action => 'show', :anchor => 'answer'
+
 
         - @question.answers.each do |answer|
           .answer

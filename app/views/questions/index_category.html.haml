@@ -10,7 +10,6 @@
 
         / カテゴリ１
         %h3
-          %a#category1{:name => "category1"}
           進路相談
 
         %ul
@@ -36,10 +35,7 @@
         .space10px
         .space10px
         %h3
-          %a#category2{:name => "category2"}>
           学校・塾評判
-
-
         %ul
           %li.float.indextop1 質問
           %li.float.indextop2 詳細
@@ -64,7 +60,6 @@
         .space10px
         .space10px
         %h3
-          %a#category3{:name => "category3"}>
           大学評判
 
         %ul
@@ -90,8 +85,7 @@
         .space10px
         .space10px
         %h3
-          %a#category4{:name => "category4"}>
-          IB PYPの課題
+          小学校/IB PYP
         %ul
           %li.float.indextop1 質問
           %li.float.indextop2 詳細
@@ -115,8 +109,7 @@
         .space10px
         .space10px
         %h3
-          %a#category5{:name => "category5"}>
-          IB MYPの課題
+          中学校/IB MYP
         %ul
           %li.float.indextop1 質問
           %li.float.indextop2 詳細
@@ -141,8 +134,7 @@
         .space10px
         .space10px
         %h3
-          %a#category6{:name => "category6"}>
-          IB DPの課題
+          高校/IB DP
         %ul
           %li.float.indextop1 質問
           %li.float.indextop2 詳細
@@ -166,7 +158,6 @@
         .space10px
         .space10px
         %h3
-          %a#category7{:name => "category7"}>
           課外活動/CAS
         %ul
           %li.float.indextop1 質問
@@ -192,7 +183,6 @@
         .space10px
         .space10px
         %h3
-          %a#category8{:name => "category8"}>
           TOK/EE
         %ul
           %li.float.indextop1 質問
@@ -217,7 +207,6 @@
         .space10px
         .space10px
         %h3
-          %a#category9{:name => "category9"}>
           試験勉強
         %ul
           %li.float.indextop1 質問
@@ -235,6 +224,32 @@
                 .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
                 .float.indexcontent.indexcontent4= question.answers.count
               .clear
+
+
+        / other
+        .space10px
+        .space10px
+        .space10px
+        .space10px
+        %h3
+          そのほかの質問
+        %ul
+          %li.float.indextop1 質問
+          %li.float.indextop2 詳細
+          %li.float.indextop3 投稿時
+          %li.float.indextop4 回答数
+        .clear
+
+        %ul
+          - @questions.where(category1: nil).where(category2: nil).where(category3: nil).where(category4: nil).where(category5: nil).where(category6: nil).where(category7: nil).where(category8: nil).where(category9: nil).each do |question|
+            %li.indexcontentbox
+              = link_to user_question_path(question.user_id, question) do
+                .float.indexcontent.indexcontent1= question.title[0,14]
+                .float.indexcontent.indexcontent2= question.content[0,6]
+                .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
+                .float.indexcontent.indexcontent4= question.answers.count
+              .clear
+
 
         .space10px
         .space10px

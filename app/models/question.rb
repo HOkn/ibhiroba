@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
   belongs_to :users
 
   validates :title, presence: true, length: { minimum: 3 }
-  validates :content, presence: true, length: { in: 3..25 }
+  validates :content, presence: true, length: { in: 3..2000 }
 
   def favorited_by?(user, question)
     favorites.where(user_id: user.id).exists?
