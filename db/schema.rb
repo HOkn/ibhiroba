@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330095033) do
+ActiveRecord::Schema.define(version: 20150331121501) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20150330095033) do
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
   add_index "answers", ["user_id_id"], name: "index_answers_on_user_id_id"
 
+  create_table "categories", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "question_id"
@@ -39,6 +45,13 @@ ActiveRecord::Schema.define(version: 20150330095033) do
   add_index "favorites", ["created_at"], name: "index_favorites_on_created_at"
   add_index "favorites", ["question_id"], name: "index_favorites_on_question_id"
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+
+  create_table "question_categories", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 # Could not dump table "questions" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
@@ -63,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150330095033) do
     t.text     "wannaknow"
     t.text     "know"
     t.integer  "parent"
+    t.boolean  "privacy"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

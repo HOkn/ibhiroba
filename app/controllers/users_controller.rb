@@ -14,7 +14,27 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+    @favorite_questions = []
+    @question_id = @user.favorites.each do |favorite|
+      @question = Question.find(favorite.question_id)
+      @favorite_questions.push(@question)
+    end
+
+    @myquestions = []
+    @question_id = @user.questions.each do |question|
+      @question = Question.find(question.id)
+      @myquestions.push(@question)
+    end
+
+    @myanswers = []
+    @answer_id = @user.answers.each do |answer|
+      @question = answer.question
+      @answer = Answer.find(answer.id)
+      @myanswers.push(@answer)
+    end
+
+
   end
 
   # GET /users/new
@@ -66,6 +86,8 @@ end
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

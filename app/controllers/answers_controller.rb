@@ -3,10 +3,13 @@ class AnswersController < ApplicationController
   def create
     @user = current_user
     @question = Question.find(params[:question_id])
-    @answer = @question.answers.create(answer_params)
-    @answer.user_id = current_user.id
-    raise
-    redirect_to user_question_path(@user, @question)
+    @answer = @question.answers.build(answer_params)
+    @answer.user_id = @user.id
+    if @answer.save
+      redirect_to user_question_path(@user, @question)
+    else
+      raise
+    end
   end
 
   def index
@@ -32,6 +35,6 @@ class AnswersController < ApplicationController
 
   private
     def answer_params
-      params.require(:answer).permit(:content, :user_id)
+      params.require(:answer).permit(:content)
     end
 end

@@ -15,7 +15,7 @@
               %ul
                 %li メールアドレス：
                 %li 表示名：
-                %li 立場：
+                .status 立場：
                 %li お子様の年齢：
                 %li お子様の年齢：
                 %li 在住国：
@@ -38,19 +38,21 @@
                 = form_for @user, url: settings_path, method: :put do |f|
                   %li= f.text_field :email, :placeholder => "example@example.com"
                   %li= f.text_field :screen_name, :placeholder => "4~24文字"
-                  %li
-                    %label.radio-inline
-                      %input#inlineRadio1{:name => "inlineRadioOptions", :type => "radio", :value => "option1"}
-                        IB生
-                    %label.radio-inline
-                      %input#inlineRadio2{:name => "inlineRadioOptions", :type => "radio", :value => "option2"}
-                        IB生の親
-                    %label.radio-inline
-                      %input#inlineRadio2{:name => "inlineRadioOptions", :type => "radio", :value => "option2"}
-                        その他の親
-                    %label.radio-inline
-                      %input#inlineRadio3{:name => "inlineRadioOptions", :type => "radio", :value => "option3"}
-                        ほか
+                  %li.radio.float=f.radio_button :status, string: "par"
+                  　　保護者
+                  .clear
+                  %li.radio.float=f.radio_button :status, string: "IBpar"
+                  　　IB生の保護者
+                  .clear
+                  %li.radio.float=f.radio_button :status, string: "teach"
+                  　　教員
+                  .clear
+                  %li.radio.float=f.radio_button :status, string: "IBteach"
+                  　　IB教員
+                  .clear
+                  %li.radio.float=f.radio_button :status, string: "IBstud"
+                  　　IB生
+                  .clear
                   %li.child_age
                   = f.text_field :child_age1, :class => "child_age"
                   歳(非公開)
@@ -65,13 +67,12 @@
                   %li= f.text_field :know
                   %li= f.text_field :bio
                   %li
-                    %label.checkbox-inline
-                      %input#inlineCheckbox1{:checked => "checked", :type => "checkbox", :value => "option1"}
-                        サイト内公開
-                  %li
-                    %label.checkbox-inline
-                      %input#inlineCheckbox1{:checked => "checked", :type => "checkbox", :value => "option1"}
-                        受け取る
+                  %li.checkbox.float= f.check_box :privacy, {}, true, false
+                  　　サイト内公開
+                  .clear
+                  %li.checkbox.float= f.check_box :mailmagazine, {}, true, false
+                  　　受け取る
+                  .space10px
                   .space10px
                   %li= f.password_field :password
                   %li= f.password_field :password_confirmation
