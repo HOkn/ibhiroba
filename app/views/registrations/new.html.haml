@@ -46,19 +46,19 @@
                   %li= f.password_field :password
                   %li= f.password_field :password_confirmation
 
-                  %li.radio.float=f.radio_button :status, string: "parent"
+                  %li.radio.float=f.radio_button :status, string: "par"
                   　　保護者
                   .clear
-                  %li.radio.float=f.radio_button :status, string: "IBparent"
+                  %li.radio.float=f.radio_button :status, string: "IBpar"
                   　　IB生の保護者
                   .clear
-                  %li.radio.float=f.radio_button :status, string: "teacher"
+                  %li.radio.float=f.radio_button :status, string: "teach"
                   　　教員
                   .clear
-                  %li.radio.float=f.radio_button :status, string: "IBteacher"
+                  %li.radio.float=f.radio_button :status, string: "IBteach"
                   　　IB教員
                   .clear
-                  %li.radio.float=f.radio_button :status, string: "IBstudent"
+                  %li.radio.float=f.radio_button :status, string: "IBstud"
                   　　IB生
                   .clear
                   %li
@@ -74,14 +74,11 @@
                   %li= f.text_field :wannaknow, :placeholder => "高校進路、英語、家庭学習などなど"
                   %li= f.text_field :know, :placeholder => "みなさまの力が必要です！"
                   %li= f.text_field :bio
-                  %li
-                    %label.checkbox-inline
-                      %input#inlineCheckbox1{:checked => "checked", :type => "checkbox", :value => "option1"}
-                        サイト内公開
-                  %li
-                    %label.checkbox-inline
-                      %input#inlineCheckbox1{:checked => "checked", :type => "checkbox", :value => "option1"}
-                        受け取る
+                  %li.checkbox.float= f.check_box :privacy, {}, true, false
+                  　　サイト内公開
+                  .clear
+                  %li.checkbox.float= f.check_box :mailmagazine, {}, true, false
+                  　　受け取る
                   %li= f.text_field :comment, :placeholder => "ご意見お聞かせください！", :class => "opinionbox"
                   %li= f.submit '登録する', :class => "btn btn-default submitbutton"
           .clear
