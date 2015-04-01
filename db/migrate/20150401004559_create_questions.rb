@@ -3,11 +3,10 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.text :title
       t.text :content
-      t.string :keyword1
-      t.string :keyword2
-      t.string :keyword3
-      t.integer :fav
-      t.integer :like
+      t.string :askeduser
+      t.text :keyword1
+      t.text :keyword2
+      t.text :keyword3
 
       t.timestamps null: false
     end

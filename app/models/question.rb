@@ -1,14 +1,10 @@
 class Question < ActiveRecord::Base
-  has_many :answers
+  belongs_to :users
+  has_many :answers, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :categories, through: :question_category
-  belongs_to :users
-
-  validates :title, presence: true, length: { minimum: 3 }
-  validates :content, presence: true, length: { in: 3..2000 }
 
   def favorited_by?(user, question)
-    favorites.where(user_id: user.id).exists?
+    Favorite.where(user_id: user.id).exists?
   end
-
 end
