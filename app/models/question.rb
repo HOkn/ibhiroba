@@ -1,6 +1,7 @@
 class Question < ActiveRecord::Base
   has_many :answers
   has_many :favorites, dependent: :destroy
+  has_many :categories, through: :question_category
   belongs_to :users
 
   validates :title, presence: true, length: { minimum: 3 }
