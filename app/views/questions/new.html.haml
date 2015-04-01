@@ -30,6 +30,18 @@
               カテゴリー（複数選択可能）
               %br
               %p
+                = @categories.inspect
+                - @categories.each do |category|
+                  = check_box_tag :category1, category.name
+                  = category.name
+
+
+                  / = check_box_tag "question[category_ids][]", category.id, @question.categories.include?(category)
+                  / = category.name
+
+                  / = check_box "question[category_ids][]", category.id, @question.categories.include?(category)
+                  / = category.name
+
                 / =f.check_box :category1, {}, true, false
                 / 家庭学習
                 / =f.check_box :category2, {}, true, false

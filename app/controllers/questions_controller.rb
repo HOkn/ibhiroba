@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    @categories = Category.all
   end
 
   def create
@@ -52,7 +53,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, :content)
+    params.require(:question).permit(:title, :content, categories_attributes: [:id])
   end
 
 end

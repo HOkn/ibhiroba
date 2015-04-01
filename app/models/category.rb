@@ -1,4 +1,6 @@
 class Category < ActiveRecord::Base
-  belongs_to :questions, through: :question_category
+  has_many :questions, through: :question_categories
   belongs_to :categories
+
+  validates :name, length: { maximum: 40 }
 end

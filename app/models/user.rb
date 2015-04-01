@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   validates :screen_name, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9]+\z/ }, length: { in: 2..24 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
 
-
   validates :password, confirmation: true, length: { in: 2..26 }
   validates :password_confirmation, presence: true, if: :password
 
