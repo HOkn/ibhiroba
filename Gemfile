@@ -35,10 +35,10 @@ gem 'better_errors'
 # gem 'capistrano-rails', group: :development
 
 
-
-  gem 'sqlite3', '~> 1.3.10', group: :development
-  gem 'pg', group: :production
-  gem 'rails_12factor', group: :production
+# Use sqlite3 as the database for Active Record
+# gem 'sqlite3', '~> 1.3.10', group: :development
+gem 'pg', group: :production
+gem 'rails_12factor', group: :production
 
 
 group :development, :test do
