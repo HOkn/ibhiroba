@@ -20,12 +20,10 @@ ActiveRecord::Schema.define(version: 20150401010159) do
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "user_id_id"
     t.integer  "user_id"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
-  add_index "answers", ["user_id_id"], name: "index_answers_on_user_id_id"
 
   create_table "categories", force: :cascade do |t|
     t.text     "name"
@@ -60,6 +58,8 @@ ActiveRecord::Schema.define(version: 20150401010159) do
     t.text     "keyword1"
     t.text     "keyword2"
     t.text     "keyword3"
+    t.integer  "user_id_id"
+    t.integer  "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
