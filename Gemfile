@@ -34,9 +34,13 @@ gem 'better_errors'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
-
-
+gem 'sqlite3', '~> 1.3.10', group: :development
+gem 'pg', group: :production
+gem 'rails_12factor', group: :production
+gem 'haml-rails'
+gem 'bootstrap-sass', '~> 3.3.4'
+gem 'font-awesome-rails'
+gem 'sorcery'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -60,14 +64,6 @@ group :development, :test do
 
   gem 'hirb'
 
-  gem 'haml-rails'
-  gem 'bootstrap-sass', '~> 3.3.4'
-  gem 'font-awesome-rails'
-  gem 'sorcery'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.3.10', group: :development
-  gem 'pg', group: :production
-  gem 'rails_12factor', group: :production
-
-  end
+end
 
