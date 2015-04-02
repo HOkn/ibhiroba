@@ -7,7 +7,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.text :keyword1
       t.text :keyword2
       t.text :keyword3
-      t.references :user_id
+      t.integer :user_id
       t.integer :category
 
       t.timestamps null: false
