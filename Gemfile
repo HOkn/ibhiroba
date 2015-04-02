@@ -35,10 +35,7 @@ gem 'better_errors'
 # gem 'capistrano-rails', group: :development
 
 
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3', '~> 1.3.10', group: :development
-gem 'pg', group: :production
-gem 'rails_12factor', group: :production
+
 
 
 group :development, :test do
@@ -67,7 +64,10 @@ group :development, :test do
   gem 'bootstrap-sass', '~> 3.3.4'
   gem 'font-awesome-rails'
   gem 'sorcery'
-
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '~> 1.3.10', group: :development
+  gem 'pg', group: :production
+  gem 'rails_12factor', group: :production
 
   end
 
