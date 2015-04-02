@@ -31,7 +31,14 @@
           .answer
             #answer_info
               =answer.created_at.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})")
-              ="ユーザ名と属性と住んでいる場所"
+              / ="ユーザ名："
+              / =answer.user.screen_name
+              / ="滞在国："
+              / =answer.user.residence_country
+              / ="滞在地："
+              / =answer.user.residencenow
+              / ="立場："
+              / =answer.user.status
             #answer_content
               =answer.content
               - if logged_in?

@@ -4,27 +4,33 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+
   def show
+    @user = current_user
     @question = Question.find(params[:id])
     @question = Question.includes(:answers).find(params[:id])
     @answer = Answer.new
   end
+
 
   def new
     @question = Question.new
     @categories = Category.all
   end
 
+
   def create
-    @user = current_user
+    @user=current_user
     @question = Question.new(question_params)
-    @question.user_id = @user.id
-    if @question.save
+    @category = Category.find(params[:category][:id])
+
+    if @question.save & @question.categories << @category
       redirect_to user_question_path(@user, @question)
     else
       render 'new'
     end
   end
+
 
   def edit
     @user = current_user
@@ -44,11 +50,13 @@ class QuestionsController < ApplicationController
   end
 
 
+  # def index_category
+  #   @questions = Question.all
+  #   @questioncategory = QuestionCategory.all
+  #   @question_id = @questioncategory.question_id
 
-
-  def index_category
-    @questions = Question.all
-  end
+  #   @question = Question.where(@question_id: 1)
+  # end
 
 
   private

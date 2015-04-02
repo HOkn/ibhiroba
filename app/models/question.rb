@@ -2,7 +2,9 @@ class Question < ActiveRecord::Base
   belongs_to :users
   has_many :answers, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :categories, through: :question_category
+
+  has_many :question_categories
+  has_many :categories, through: :question_categories
   accepts_nested_attributes_for :categories
 
 
@@ -14,6 +16,6 @@ class Question < ActiveRecord::Base
   validates :keyword3, length: { maximum: 30 }
 
   def favorited_by?(user, question)
-    Favorite.where(user_id: user.id).exists?
+    Favorite.where(user_id: user.id).where(question_id: question.id).exists?
   end
 end

@@ -22,45 +22,16 @@
             = f.text_field :title, :class => "input form-control", :placeholder => "質問のタイトル", :type => "text"
           %p
             = f.text_area :content, :class => "textarea form-control", :placeholder => "質問の内容", :rows => "12"
-
-
           %p
             .category1
               .space10px
               カテゴリー（複数選択可能）
               %br
               %p
-                = @categories.inspect
-                - @categories.each do |category|
-                  = check_box_tag :category1, category.name
-                  = category.name
 
-
-                  / = check_box_tag "question[category_ids][]", category.id, @question.categories.include?(category)
-                  / = category.name
-
-                  / = check_box "question[category_ids][]", category.id, @question.categories.include?(category)
-                  / = category.name
-
-                / =f.check_box :category1, {}, true, false
-                / 家庭学習
-                / =f.check_box :category2, {}, true, false
-                / 学校/塾の評判
-                / =f.check_box :category3, {}, true, false
-                / 進路相談
-                / =f.check_box :category4, {}, true, false
-                / IB PYP
-                / =f.check_box :category5, {}, true, false
-                / IB MYP
-                / =f.check_box :category6, {}, true, false
-                / IB DP
-
-                / =f.check_box :category7, {}, true, false
-                / 課外活動
-                / =f.check_box :category8, {}, true, false
-                / 試験勉強
-                / =f.check_box :category9, {}, true, false
-                / TOK/EE
+              - @categories.each do |c|
+                = check_box :category, :id, { multiple: true }, c.id, false
+                = c.name
 
             .category2
               .space10px
