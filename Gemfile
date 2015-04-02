@@ -4,6 +4,14 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 
+gem 'sqlite3', group: :development
+gem 'pg', group: :production
+gem 'rails_12factor', group: :production
+gem 'haml-rails'
+gem 'bootstrap-sass', '~> 3.3.4'
+gem 'font-awesome-rails'
+gem 'sorcery'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -33,14 +41,6 @@ gem 'better_errors'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-gem 'sqlite3', '~> 1.3.10', group: :development
-gem 'pg', group: :production
-gem 'rails_12factor', group: :production
-gem 'haml-rails'
-gem 'bootstrap-sass', '~> 3.3.4'
-gem 'font-awesome-rails'
-gem 'sorcery'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
