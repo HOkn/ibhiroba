@@ -3,17 +3,15 @@
 one:
   title: MyText
   content: MyText
-  keyword1: MyString
-  keyword2: MyString
-  keyword3: MyString
-  fav: 1
-  like: 1
+  askeduser: MyString
+  keyword1: MyText
+  keyword2: MyText
+  keyword3: MyText
 
 two:
   title: MyText
   content: MyText
-  keyword1: MyString
-  keyword2: MyString
-  keyword3: MyString
-  fav: 1
-  like: 1
+  askeduser: MyString
+  keyword1: MyText
+  keyword2: MyText
+  keyword3: MyText

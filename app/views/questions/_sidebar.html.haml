@@ -4,19 +4,30 @@
   %div
     .name.float
       %i.fa.fa-user
-      Yuki Owada
+      - if current_user.present?
+        = current_user.screen_name
+      - else
+        Unknown User
     .clear
     .row
-      .col-md-4
-        %a.btn.btn-primary{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Likes%23index_user.html", :type => "button"}
-          %i.fa.fa-thumbs-o-up
-          %span.badge 4
-      .col-md-4
-        %a.btn.btn-default{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index.html", :role => "button"}
-          Q&A記録
-      .col-md-4
-        %a.btn.btn-default{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/account.html", :role => "button"}
-          設定
+      - if logged_in?
+        .col-md-4
+          %a.btn.btn-primary{:href => "", :type => "button"}
+            %i.fa.fa-thumbs-o-up
+            %span.badge 4
+        .col-md-4
+          = link_to "Q&A記録", user_path(current_user.id), :class => "a btn btn-default"
+        .col-md-4
+          = link_to "設定", edit_settings_path(current_user), :class => "a btn btn-default"
+      - else
+        .col-md-4
+          %a.btn.btn-primary{:href => "", :type => "button"}
+            %i.fa.fa-thumbs-o-up
+            %span.badge 4
+        .col-md-4
+          = link_to "Q&A記録", new_registrations_path, :class => "a btn btn-default"
+        .col-md-4
+          = link_to "ログイン", new_registrations_path, :class => "a btn btn-default"
 / PROFILE end
 / INDEX+RANKING+NEW+LINKS
 .ranking
@@ -29,38 +40,29 @@
     %br
       .space10px
       .bartitle
-        %a{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index_category.html", :target => "blank"}
-          カテゴリー
+        =link_to "カテゴリ別質問", questions_category_path
+
       %ul
         %li
-          %a{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index_category.html#category1", :title => "", :target => "blank"}
-            ・進路相談
+          =link_to "・家庭学習", questions_category_path
         %li
-          %a{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index_category.html#category2", :title => "", :target => "blank"}
-            ・学校・塾評判
+          =link_to "・学校/塾の評判", questions_category_path
         %li
-          %a{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index_category.html#category3", :title => "", :target => "blank"}
-            ・大学評判
+          =link_to "・進路相談", questions_category_path
         .space10px
         %li
-          %a{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index_category.html#category4", :title => "", :target => "blank"}
-            ・IB PYPの課題・科目
+          =link_to "・小学校/IB PYP", questions_category_path
         %li
-          %a{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index_category.html#category5", :title => "", :target => "blank"}
-            ・IB MYPの課題・科目
+          =link_to "・中学校/IB MYP", questions_category_path
         %li
-          %a{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index_category.html#category6", :title => "", :target => "blank"}
-            ・IB DPの課題・科目
+          =link_to "・高校/IB DP", questions_category_path
         %li
-          %a{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index_category.html#category7", :title => "", :target => "blank"}
-            ・課外活動/CAS
+          =link_to "・課外活動/CAS", questions_category_path
         %li
-          %a{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index_category.html#category8", :title => "", :target => "blank"}
-            ・TOK/EE
+          =link_to "・TOK/EE", questions_category_path
         .space10px
         %li
-          %a{:href => "file:///Users/HOkaniwa/Desktop/IBplat%202/Questions%23index_category.html#category9", :title => ""}
-            ・試験勉強
+          =link_to "・試験勉強", questions_category_path
       .space10px
       .bartitle
         %a{:href => ""} ランキング
@@ -96,7 +98,7 @@
             %br
               .space10px
               .bartitle
-                %a{:href => ""} リンク
+                リンク
               %a{:href => "https://www.facebook.com/groups/IB.Community.Japan/?ref=ts&fref=ts", :target => "blank"}
                 ・Facebook国際バカロレアコミュニティ
               %br

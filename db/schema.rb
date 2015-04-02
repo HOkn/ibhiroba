@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322030349) do
+ActiveRecord::Schema.define(version: 20150401010159) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -20,20 +20,74 @@ ActiveRecord::Schema.define(version: 20150322030349) do
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id_id"
+    t.integer  "user_id"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["user_id_id"], name: "index_answers_on_user_id_id"
+
+  create_table "categories", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "favorites", ["answer_id"], name: "index_favorites_on_answer_id"
+  add_index "favorites", ["created_at"], name: "index_favorites_on_created_at"
+  add_index "favorites", ["question_id"], name: "index_favorites_on_question_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+
+  create_table "question_categories", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "questions", force: :cascade do |t|
     t.text     "title"
     t.text     "content"
-    t.string   "keyword1"
-    t.string   "keyword2"
-    t.string   "keyword3"
-    t.integer  "fav"
-    t.integer  "like"
+    t.string   "askeduser"
+    t.text     "keyword1"
+    t.text     "keyword2"
+    t.text     "keyword3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",             null: false
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "screen_name"
+    t.string   "residencenow"
+    t.string   "origin"
+    t.string   "status"
+    t.boolean  "mailmagazine"
+    t.string   "school"
+    t.text     "bio"
+    t.string   "residence_country"
+    t.text     "comment"
+    t.integer  "child_age1"
+    t.integer  "child_age2"
+    t.text     "wannaknow"
+    t.text     "know"
+    t.integer  "parent"
+    t.boolean  "privacy"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
