@@ -28,58 +28,27 @@
         .category1
           .space10px
           カテゴリー（複数選択可能）
-          %br
-            %label.checkbox-inline
-              %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
-                進路/受験
-            %label.checkbox-inline
-              %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
-                学校/塾評判
-            %label.checkbox-inline
-              %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
-                大学評判
-            %br
-              %label.checkbox-inline
-                %input#inlineCheckbox1{:type => "checkbox", :value => "option1"}
-                  IB PYP
-              %label.checkbox-inline
-                %input#inlineCheckbox2{:type => "checkbox", :value => "option2"}
-                  IB MYP
-              %label.checkbox-inline
-                %input#inlineCheckbox2{:type => "checkbox", :value => "option2"}
-                  IB DP
-              %label.checkbox-inline
-                %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
-                  課外活動/CAS
-              %label.checkbox-inline
-                %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
-                  TOK/EE
-              %br
-                %label.checkbox-inline
-                  %input#inlineCheckbox1{:type => "checkbox", :value => "option1"}
-                    英語勉強
-                %br
-                  %label.checkbox-inline
-                    %input#inlineCheckbox1{:type => "checkbox", :value => "option1"}
-                      試験勉強
-                  %br
-                    .space10px
-        .category2
+          - @categories.each do |c|
+            = check_box :category, :id, { multiple: true }, c.id, false
+            = c.name
+
           .space10px
-          この質問に答えてほしい人（複数選択可能）
-          %br
-            %label.checkbox-inline
-              %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
-                IB生
-            %label.checkbox-inline
-              %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
-                IB生の親
-            %label.checkbox-inline
-              %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
-                そのほかの親
-            %label.checkbox-inline
-              %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
-                教育関係者
+        .category2
+          / .space10px
+          / この質問に答えてほしい人（複数選択可能）
+          / %br
+          /   %label.checkbox-inline
+          /     %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
+          /       IB生
+          /   %label.checkbox-inline
+          /     %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
+          /       IB生の親
+          /   %label.checkbox-inline
+          /     %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
+          /       そのほかの親
+          /   %label.checkbox-inline
+          /     %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
+          /       教育関係者
             %br
               .space10px
         %input.form-control{:placeholder => "キーワード", :type => "text"}
