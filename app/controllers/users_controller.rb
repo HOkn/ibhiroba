@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    raise
     @favorite_questions = []
     @question_id = @user.favorites.each do |favorite|
       @question = Question.find(favorite.question_id)

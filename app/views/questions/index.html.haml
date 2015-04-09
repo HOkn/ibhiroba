@@ -1,9 +1,7 @@
 = render 'header'
 
 .row
-
   .col-md-9
-    / CONTENT
     .content_wrap
       .content
         - if notice
@@ -18,14 +16,14 @@
           %li.float.indextop4 回答数
         .clear
         %ul
-          - @questions.each do |question|
-            %li.indexcontentbox
-              = link_to user_question_path(current_user, question) do
-                .float.indexcontent.indexcontent1= question.title[0,14]
-                .float.indexcontent.indexcontent2= question.content[0,6]
-                .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
-                .float.indexcontent.indexcontent4= question.answers.count
-                .clear
+          / - @questions.each do |question|
+          /   %li.indexcontentbox
+          /     = link_to user_question_path(@user, question) do
+          /       .float.indexcontent.indexcontent1= question.title[0,14]
+          /       .float.indexcontent.indexcontent2= question.content[0,6]
+          /       .float.indexcontent.indexcontent3= question.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[question.created_at.wday]})")
+          /       .float.indexcontent.indexcontent4= question.answers.count
+          /       .clear
 
   .sidebar.col-md-3
     = render 'sidebar'

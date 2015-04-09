@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   get "/questions/category", to: "questions#index_category"
 
   resources :questions, only: [] do
-      resource :favorites, only: [:create, :destroy]
-      resources :answers
+    resource :favorites, only: [:create, :destroy]
+    resources :answers
   end
 
   root to: 'questions#index'
